@@ -7,11 +7,11 @@ export const replaceCamelCaseWithSpaces = colorName => {
 
 const App = () => {
 
-  const [ buttonColor, setButtonColor ] = useState('red');
+  const [ buttonColor, setButtonColor ] = useState('MediumVioletRed');
   const [ disabled, setDisabled ] = useState(false);
 
   const onClickChangeToBlue = () => {
-    setButtonColor(buttonColor === 'red' ? 'blue' : 'red');
+    setButtonColor(buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed');
   };
 
   const onClickCheckbox = e => {
@@ -25,7 +25,15 @@ const App = () => {
         onClick={() => onClickChangeToBlue()}
         disabled={disabled}
       >
-        Change to {buttonColor === 'blue' ? 'red' : 'blue'}
+        Change to {buttonColor === 'MediumVioletRed' ? (
+          <>
+            {replaceCamelCaseWithSpaces('MidnightBlue')}
+          </>
+        ) : (
+          <>
+            {replaceCamelCaseWithSpaces('MediumVioletRed')}
+          </>
+        )}
       </button>
       <label
         htmlFor="checkbox-disable-button"
