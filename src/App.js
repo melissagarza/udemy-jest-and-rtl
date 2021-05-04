@@ -10,8 +10,8 @@ const App = () => {
     setButtonColor(buttonColor === 'red' ? 'blue' : 'red');
   };
 
-  const onClickCheckbox = () => {
-    setDisabled(!disabled);
+  const onClickCheckbox = e => {
+    setDisabled(e.target.checked);
   };
 
   return (
@@ -23,10 +23,16 @@ const App = () => {
       >
         Change to {buttonColor === 'blue' ? 'red' : 'blue'}
       </button>
+      <label
+        htmlFor="checkbox-disable-button"
+      >Disable button</label>
       <input
         type="checkbox"
-        onClick={() => onClickCheckbox()}
-      ></input>
+        id="checkbox-disable-button"
+        onChange={e => onClickCheckbox(e)}
+        defaultChecked={disabled}
+        aria-checked={disabled}
+      />
     </div>
   );
 };
